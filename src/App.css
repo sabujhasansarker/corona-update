@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Handlee", cursive;
 }
 .heading {
   padding: 20px;
@@ -8,4 +9,22 @@
 }
 h6.total_numbr {
   padding: 20px;
+  height: 100px;
+}
+.btn-text {
+  display: block;
+  font-family: "Crushed", cursive;
+}
+.single {
+  border: 1px solid;
+  margin: 10px 0px;
+  text-align: left;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+.text-center {
+  text-align: center;
+}
+table {
+  font-size: 20px;
 }

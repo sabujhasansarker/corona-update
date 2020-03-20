@@ -7,6 +7,7 @@ const Total = () => {
   const coronaContext = useContext(CoronaContext);
   const { totalData, filter } = coronaContext;
   const data = filter == null ? totalData : filter;
+  let url = "";
   return (
     <Fragment>
       <Filter />
@@ -14,10 +15,10 @@ const Total = () => {
         <thead>
           <tr>
             <th>Country</th>
+            <th>Province</th>
             <th>Confirmed</th>
             <th>recovered</th>
             <th>deaths</th>
-            <th>Province</th>
           </tr>
         </thead>
 
@@ -28,7 +29,7 @@ const Total = () => {
                 <Link to={e.country}>{e.country}</Link>
               </td>
               <td>
-                <Link to={e.province}>{e.province}</Link>
+                <Link to={`province/${e.province}`}>{e.province}</Link>
               </td>
               <td>{e.latest.confirmed}</td>
               <td>{e.latest.recovered}</td>
