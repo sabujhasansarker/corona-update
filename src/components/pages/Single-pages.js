@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const SinglePages = props => {
   const coronaContext = useContext(CoronaContext);
-  const { totalData } = coronaContext;
+  const { totalData, clearFilter } = coronaContext;
   let province = props.match.url;
   let singleData = [];
   if ("/province/" === province.substring(0, 10)) {
@@ -16,9 +16,16 @@ const SinglePages = props => {
       single.country === props.match.params.slug ? totalData : ""
     );
   }
+  const hendelClick = () => {
+    clearFilter();
+  };
   return (
     <div>
-      <Link to="/" className="waves-effect waves-light btn btn-text">
+      <Link
+        to="/"
+        className="waves-effect waves-light btn btn-text"
+        onClick={hendelClick}
+      >
         Back to All
       </Link>
       {singleData.map(e => (
