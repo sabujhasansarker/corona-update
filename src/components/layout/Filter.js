@@ -4,7 +4,7 @@ import CoronaContext from "../../context/CoronaContext";
 const Filter = () => {
   const coronaContext = useContext(CoronaContext);
   const { addFilter, totalData, clearFilter } = coronaContext;
-  const text = useRef("");
+  let text = useRef("");
   const heldelchange = e => {
     text.current.value == ""
       ? clearFilter()
@@ -15,6 +15,7 @@ const Filter = () => {
           })
         );
   };
+
   return (
     <Fragment>
       <input

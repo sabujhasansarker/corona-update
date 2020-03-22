@@ -32,7 +32,7 @@ const SinglePages = props => {
         <div className="single" key={e.id}>
           <h3 className="text-center">{e.country}</h3>
           <h6>Confirmed : {e.latest.confirmed}</h6>
-          <h6>Recover : {e.latest.recover}</h6>
+          <h6>Recover : {e.latest.recovered}</h6>
           <h6>Deaths : {e.latest.deaths}</h6>
           {e.province && (
             <h6 className="">
