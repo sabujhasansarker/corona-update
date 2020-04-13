@@ -6,6 +6,7 @@ const Total = () => {
   const coronaContext = useContext(CoronaContext);
   const { countrys, filter } = coronaContext;
   const data = filter === null ? countrys : filter;
+  data.sort((a, b) => (a.cases > b.cases ? -1 : 1));
 
   return (
     <div className="coustom-container">
