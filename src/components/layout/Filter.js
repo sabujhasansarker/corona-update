@@ -3,13 +3,13 @@ import CoronaContext from "../../context/CoronaContext";
 
 const Filter = () => {
   const coronaContext = useContext(CoronaContext);
-  const { addFilter, totalData, clearFilter } = coronaContext;
+  const { addFilter, countrys, clearFilter } = coronaContext;
   let text = useRef("");
-  const heldelchange = e => {
-    text.current.value == ""
+  const heldelchange = (e) => {
+    text.current.value === ""
       ? clearFilter()
       : addFilter(
-          totalData.filter(c => {
+          countrys.filter((c) => {
             const regex = new RegExp(`${text.current.value}`, "gi");
             return c.country.match(regex);
           })

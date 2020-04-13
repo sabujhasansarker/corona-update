@@ -25,6 +25,46 @@ h6.total_numbr {
 .text-center {
   text-align: center;
 }
-table {
-  font-size: 20px;
+
+.display-flex {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coustom-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.card {
+  min-height: 400px;
+}
+
+img.activator {
+  height: 320px;
+}
+td,
+th {
+  padding: 8px 3px;
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+h6 {
+  margin: 20px 0px;
+}
+.total_numbr > h6 {
+  font-size: 25px;
+  margin: 0px;
+  padding-top: 17px;
+}
+
+.total_numbr {
+  padding: 10px;
+}
+span.per {
+  font-size: 15px;
+  margin-left: 5px;
 }

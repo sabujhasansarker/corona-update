@@ -1,4 +1,6 @@
 import React, { Fragment, useContext } from "react";
+import moment from "moment";
+
 import CoronaContext from "../../context/CoronaContext";
 
 const Header = () => {
@@ -13,22 +15,51 @@ const Header = () => {
       </div>
       <div className="row">
         <div className="col s4">
-          <h6 className="total_numbr indigo lighten-5">
-            Total Confirmed <br />
-            {eval(totalData.map(e => e.latest.confirmed).join("+"))}
-          </h6>
+          <div className="total_numbr indigo lighten-5">
+            <h6>
+              Total Confirmed <br />
+              {totalData.cases}
+            </h6>
+            <p>
+              Last Updated By {moment(totalData.updated).format("LLLL")} <br />{" "}
+              (Bangladesh stander time)
+            </p>
+          </div>
         </div>
         <div className="col s4">
-          <h6 className="total_numbr green darken-1">
-            Total Recover <br />{" "}
-            {eval(totalData.map(e => e.latest.recovered).join("+"))}
-          </h6>
+          <div className="total_numbr green darken-1">
+            <h6>
+              Total Recover <br /> {totalData.recovered}
+              <span className="per">
+                (
+                {(
+                  (totalData.recovered / totalData.cases) *
+                  100
+                ).toLocaleString()}
+                %)
+              </span>
+            </h6>
+            <p>
+              Last Updated By {moment(totalData.updated).format("LLLL")} <br />{" "}
+              (Bangladesh stander time)
+            </p>
+          </div>
         </div>
         <div className="col s4">
-          <h6 className="total_numbr red darken-1">
-            Total Deaths <br />
-            {eval(totalData.map(e => e.latest.deaths).join("+"))}
-          </h6>
+          <div className="total_numbr red darken-1">
+            <h6>
+              Total Deaths <br />
+              {totalData.deaths}
+              <span className="per">
+                ({((totalData.deaths / totalData.cases) * 100).toLocaleString()}
+                %)
+              </span>
+            </h6>
+            <p>
+              Last Updated By {moment(totalData.updated).format("LLLL")} <br />{" "}
+              (Bangladesh stander time)
+            </p>
+          </div>
         </div>
       </div>
     </Fragment>

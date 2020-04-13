@@ -1,35 +1,47 @@
 import React, { useEffect, useReducer } from "react";
 import CoronaContext from "./CoronaContext";
 import CoronaReducer from "./CoronaReducer";
-import { GET_DATA, FILTER_DATA, CLEAR_FILTER } from "./Type";
-const CoronaState = props => {
+import { GET_DATA, FILTER_DATA, CLEAR_FILTER, GET_DATA_COUNTRY } from "./Type";
+const CoronaState = (props) => {
   const initialState = {
     totalData: [],
-    filter: null
+    countrys: [],
+    filter: null,
   };
   const [state, dispatch] = useReducer(CoronaReducer, initialState);
   useEffect(() => {
-    getMount();
+    allData();
+    countryData();
   }, []);
-  const getMount = async () => {
-    const response = await fetch(
-      `https://coronavirus-tracker-api.herokuapp.com/v2/locations`
-    );
+
+  // * new data
+
+  const allData = async () => {
+    const response = await fetch(`https://corona.lmao.ninja/v2/all`);
     const data = await response.json();
     dispatch({
       type: GET_DATA,
-      payload: data.locations
+      payload: data,
     });
   };
-  const addFilter = data => {
+
+  const countryData = async () => {
+    const response = await fetch(`https://corona.lmao.ninja/v2/countries`);
+    const data = await response.json();
+    dispatch({
+      type: GET_DATA_COUNTRY,
+      payload: data,
+    });
+  };
+  const addFilter = (data) => {
     dispatch({
       type: FILTER_DATA,
-      payload: data
+      payload: data,
     });
   };
   const clearFilter = () => {
     dispatch({
-      type: CLEAR_FILTER
+      type: CLEAR_FILTER,
     });
   };
   return (
@@ -37,8 +49,10 @@ const CoronaState = props => {
       value={{
         totalData: state.totalData,
         filter: state.filter,
+        countrys: state.countrys,
+        countryData,
         addFilter,
-        clearFilter
+        clearFilter,
       }}
     >
       {props.children}
