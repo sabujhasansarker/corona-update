@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Comic+Neue:wght@700&family=Cookie&display=swap');
 .App {
   text-align: center;
-  font-family: "Handlee", cursive;
+font-family: 'Bree Serif', serif;
 }
 .heading {
   padding: 20px;
   margin: 0;
   margin-bottom: 20px;
+  font-family: 'Cookie', cursive;
 }
 h6.total_numbr {
   padding: 20px;
