@@ -6,6 +6,7 @@ import CoronaContext from "../../context/CoronaContext";
 const Header = () => {
   const coronaContext = useContext(CoronaContext);
   const { totalData } = coronaContext;
+  var nf = new Intl.NumberFormat();
   return (
     <Fragment>
       <div className="blue lighten-4 text-center">
@@ -18,7 +19,8 @@ const Header = () => {
           <div className="total_numbr indigo lighten-5">
             <h6>
               Total Confirmed <br />
-              {totalData.cases}
+              {/* {totalData.cases} */}
+              {nf.format(totalData.cases)}
             </h6>
             <p>
               Last Updated By {moment(totalData.updated).format("LLLL")} <br />{" "}
@@ -29,13 +31,13 @@ const Header = () => {
         <div className="col s4">
           <div className="total_numbr green darken-1">
             <h6>
-              Total Recover <br /> {totalData.recovered}
+              Total Recover <br /> {nf.format(totalData.recovered)}
               <span className="per">
                 (
                 {(
                   (totalData.recovered / totalData.cases) *
                   100
-                ).toLocaleString()}
+                ).toLocaleString(undefined, { maximumFractionDigits: 2 })}
                 %)
               </span>
             </h6>
@@ -49,9 +51,13 @@ const Header = () => {
           <div className="total_numbr red darken-1">
             <h6>
               Total Deaths <br />
-              {totalData.deaths}
+              {nf.format(totalData.deaths)}
               <span className="per">
-                ({((totalData.deaths / totalData.cases) * 100).toLocaleString()}
+                (
+                {(
+                  (totalData.deaths / totalData.cases) *
+                  100
+                ).toLocaleString(undefined, { maximumFractionDigits: 2 })}
                 %)
               </span>
             </h6>

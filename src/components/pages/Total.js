@@ -52,7 +52,13 @@ const Total = () => {
                       <td>{e.active.toLocaleString()}</td>
                       <td>{e.critical.toLocaleString()}</td>
                       <td>{e.deaths.toLocaleString()}</td>
-                      <td>{((e.deaths / e.cases) * 100).toLocaleString()}%</td>
+                      <td>
+                        {((e.deaths / e.cases) * 100).toLocaleString(
+                          undefined,
+                          { maximumFractionDigits: 2 }
+                        )}
+                        %
+                      </td>
                       <td>{e.tests.toLocaleString()}</td>
                     </tr>
                   </tbody>
