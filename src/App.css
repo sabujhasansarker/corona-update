@@ -43,6 +43,7 @@ h6.total_numbr {
 
 img.activator {
   height: 320px;
+  border: 2px solid;
 }
 td,
 th {
