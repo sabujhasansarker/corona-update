@@ -58,9 +58,10 @@ td,
 th {
   padding: 8px 3px;
   display: table-cell;
-  text-align: left;
+     text-align: center;
   vertical-align: middle;
   border-radius: 2px;
+  
 }
 h6 {
   margin: 20px 0px;
