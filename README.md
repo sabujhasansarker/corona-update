@@ -16,11 +16,11 @@ Thanks [Novel COVID API](https://corona.lmao.ninja/)   :pray: for this imaging A
 ---
 # Quick Start ![rocket](https://github.githubassets.com/images/icons/emoji/unicode/1f680.png)
 
-### for namp log Run Appliaction  from root
+### For npm log Run Appliaction  from root
 
     npm install or npm i & npm start
 
-### for yarn log Run Appliaction 
+### For yarn log Run Appliaction 
 
     yarn add & yarn start
 
